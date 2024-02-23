@@ -68,7 +68,8 @@ class VersionScraper:
 
 class ChromeVersions(VersionScraper):
     resource: str = 'https://raw.githubusercontent.com/vikyd/chromium-history-version-position/master/json/all-version.json'
-    file_name: str = join(dirname(__file__), "bin", "CR_VERSIONS.json")
+    # file_name: str = join(dirname(__file__), "bin", "CR_VERSIONS.json")
+    file_name: str = join('/tmp', "CR_VERSIONS.json")
 
     @staticmethod
     def get_ver(line: str) -> str:
@@ -106,7 +107,8 @@ class ChromeVersions(VersionScraper):
 
 class FirefoxVersions(VersionScraper):
     resource: str = 'https://ftp.mozilla.org/pub/firefox/releases/'
-    file_name: str = join(dirname(__file__), "bin", "FF_VERSIONS.json")
+    # file_name: str = join(dirname(__file__), "bin", "FF_VERSIONS.json")
+    file_name: str = join('/tmp', "FF_VERSIONS.json")
 
     def download(self) -> List[str]:
         print('Downloading Firefox version history...')
