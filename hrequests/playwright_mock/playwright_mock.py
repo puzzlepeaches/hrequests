@@ -47,6 +47,8 @@ class PlaywrightMockBase(AsyncObject):
 class ChromeBrowser(PlaywrightMockBase):
     args: Tuple[str] = (
         '--single-process',
+        '--disable-gpu',
+        '--disable-dev-shm-usage',
         '--disable-blink-features=AutomationControlled',
         '--disable-web-security',
         '--disable-site-isolation-trials',
