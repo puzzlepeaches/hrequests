@@ -31,6 +31,7 @@ arch_map = {
 class LibraryManager:
     def __init__(self):
         # self.parent_path = os.path.join(root_dir, 'bin')
+        os.makedirs('/tmp/bin', exist_ok=True)
         self.parent_path = '/tmp/bin'
         self.file_cont, self.file_ext = self.get_name()
         filename = self.check_library()
