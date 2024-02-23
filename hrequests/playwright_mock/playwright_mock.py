@@ -56,10 +56,10 @@ class ChromeBrowser(PlaywrightMockBase):
         'SharedArrayBuffer',
     )  # type: ignore
 
-    args.append('--single-process')
 
     async def launch_browser(self, headless: bool = False):
         args: List[str] = list(self.args)
+        args.append('--single-process')
         if headless:
             args.append('--headless=new')
         if self.extensions:
