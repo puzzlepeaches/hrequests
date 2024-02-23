@@ -46,6 +46,7 @@ class PlaywrightMockBase(AsyncObject):
 
 class ChromeBrowser(PlaywrightMockBase):
     args: Tuple[str] = (
+        '--single-process',
         '--disable-blink-features=AutomationControlled',
         '--disable-web-security',
         '--disable-site-isolation-trials',
@@ -59,7 +60,6 @@ class ChromeBrowser(PlaywrightMockBase):
 
     async def launch_browser(self, headless: bool = False):
         args: List[str] = list(self.args)
-        args.append('--single-process')
         if headless:
             args.append('--headless=new')
         if self.extensions:
